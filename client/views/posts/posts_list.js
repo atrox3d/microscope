@@ -18,6 +18,8 @@ var postData = [
 
 Template.postsList.helpers(
 	{
+		// funziona anche come return di funzione
+		//posts: function() {return postData;}
 		posts: postData
 	}
 );
