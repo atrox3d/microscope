@@ -9,7 +9,13 @@ Template.postSubmit.events({
 			// url: $(e.target).find('[name=url').val(),
 		}
 
-		post._id = Posts.insert(post);
-		Router.go('postPage', post);
+		Meteor.call('post', post, function (error, id) {
+			if(error) {
+				return alert(error.reason);
+			}
+
+			Router.go('postPage', {_id: id});
+		});
+		// post._id = Posts.insert(post);
 	}
 });
